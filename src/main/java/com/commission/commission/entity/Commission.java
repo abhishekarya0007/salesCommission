@@ -21,5 +21,5 @@ public class Commission {
     int id;
     int SID;
     int commission;
-    Date month;
+
 }
