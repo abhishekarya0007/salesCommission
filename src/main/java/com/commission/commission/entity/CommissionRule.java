@@ -14,7 +14,7 @@ import javax.persistence.Table;
 @NoArgsConstructor
 @Entity
 @Table
-public class CommissionRule {
+public class  CommissionRule {
     @Id
     int sales;
     int cityID;
