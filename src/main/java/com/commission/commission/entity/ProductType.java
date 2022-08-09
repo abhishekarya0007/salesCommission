@@ -17,7 +17,7 @@ import javax.persistence.Table;
 public class ProductType {
     @Id
     int id;
-    String ProductType;
-    int Range;
+    String PType;
+    int price;
     int commission;
 }
