@@ -19,5 +19,5 @@ public class ProductType {
     int id;
     String PType;
     int price;
-    int commission;
+    Double commission;
 }
