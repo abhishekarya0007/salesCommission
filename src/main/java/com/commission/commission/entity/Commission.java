@@ -19,5 +19,7 @@ public class Commission {
     int id;
     int SID;
     Double commission;
-    int Month;
+    int month;
+
+
 }
