@@ -14,7 +14,7 @@ public class salesLineItemService {
     @Autowired
     com.commission.commission.Repo.salesLineItemRepo salesLineItemRepo;
     public List<SalesLineItem> salesByMonth(int sid, int month) {
-        List<SalesLineItem> byId = salesLineItemRepo.findAllBySID(sid);
+        List<SalesLineItem> byId = salesLineItemRepo.findAllBySid(sid);
         ArrayList<SalesLineItem> f = new ArrayList<>();
         System.out.println(byId);
            for(int x=0;x<byId.size();x++) {
@@ -23,5 +23,11 @@ public class salesLineItemService {
                }
            }
        return f;
+    }
+
+    public SalesLineItem addSalesLineItem(SalesLineItem salesLineItem){
+
+        return salesLineItemRepo.save(salesLineItem);
+
     }
 }

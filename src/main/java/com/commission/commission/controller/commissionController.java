@@ -17,9 +17,9 @@ public class commissionController {
     @Autowired
     commissionService commissionService;
     @GetMapping("/admin/calculateCommission")
-    public ResponseEntity<Double> commission(@RequestParam("SID") int SID, @RequestParam("Month") int Month)
+    public ResponseEntity<Double> commission(@RequestParam("sid") int sid, @RequestParam("month") int month)
     {
-        Double commission = commissionService.commission(SID, Month);
+        Double commission = commissionService.commission(sid, month);
         return new ResponseEntity<>(commission, HttpStatus.OK);
     }
 }

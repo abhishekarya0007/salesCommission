@@ -52,10 +52,10 @@ public class myExcelHelper {
                     switch (cid)
                     {
                         case 0:
-                            s.setSID((int)cell.getNumericCellValue());
+                            s.setSid((int)cell.getNumericCellValue());
                                 break;
                         case 1:
-                            s.setPID((int)cell.getNumericCellValue());
+                            s.setPid((int)cell.getNumericCellValue());
                                 break;
                         case 2:
                             s.setAmount((int)cell.getNumericCellValue());

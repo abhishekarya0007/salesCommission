@@ -20,9 +20,9 @@ import java.util.Date;
 public class SalesLineItem {
     @Id
     @GeneratedValue
-    int ID;
-    int SID;
-    int PID;
-    int Amount;
-    int Month;
+    int id;
+    int sid;
+    int pid;
+    int amount;
+    int month;
 }

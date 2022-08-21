@@ -17,8 +17,8 @@ import javax.persistence.Table;
 
 public class Product {
     @Id
-    int PID;
-    String ProductType;
-    String Name;
-    int Price;
+    int pid;
+    String productType;
+    String name;
+    int price;
 }

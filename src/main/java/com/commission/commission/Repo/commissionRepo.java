@@ -6,9 +6,9 @@ import org.springframework.stereotype.Repository;
 
 @Repository
 public interface commissionRepo extends JpaRepository<Commission,Integer> {
-    Commission findBySID(int SID);
+    Commission findBySid(int sid);
 
-    Commission findByMonth(int Month);
+    Commission findByMonth(int month);
 
-    Commission findBySIDAndMonth(int SID, int Month);
+    Commission findBySidAndMonth(int sid, int month);
 }

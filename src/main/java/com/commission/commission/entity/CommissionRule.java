@@ -16,7 +16,7 @@ import javax.persistence.Table;
 @Table
 public class  CommissionRule {
     @Id
-    int ID;
+    int id;
     double city_Rule;
     double state_Rule;
     double country_Rule;

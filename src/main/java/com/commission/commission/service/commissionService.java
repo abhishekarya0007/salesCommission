@@ -32,9 +32,9 @@ public class commissionService {
         Double old_commission=0.0;
         for (int x=0;x<sales.size();x++)
         {
-            int pid = sales.get(x).getPID();
+            int pid = sales.get(x).getPid();
             String productType = (productRepo.findById(pid)).get().getProductType();
-            List<ProductType> productTypeList = productTypeRepo.findByPType(productType);
+            List<ProductType> productTypeList = productTypeRepo.findByPtype(productType);
             for (int y=0;y<productTypeList.size();y++)
             {
                 if(sales.get(x).getAmount()<=productTypeList.get(y).getPrice())
@@ -45,17 +45,17 @@ public class commissionService {
             }
         }
         System.out.println("Total"+totalCommission);
-        if(commissionRepo.findBySIDAndMonth(sid,month)!=null)
+        if(commissionRepo.findBySidAndMonth(sid,month)!=null)
         {
-             old_commission = commissionRepo.findBySIDAndMonth(sid, month).getCommission();
+             old_commission = commissionRepo.findBySidAndMonth(sid, month).getCommission();
              System.out.println("Old"+old_commission);
-             Commission dummy = commissionRepo.findBySIDAndMonth(sid,month);
+             Commission dummy = commissionRepo.findBySidAndMonth(sid,month);
              dummy.setCommission(totalCommission);
              commissionRepo.save(dummy);
         }
         else {
             Commission commission = new Commission();
-            commission.setSID(sid);
+            commission.setSid(sid);
             commission.setMonth(month);
             commission.setCommission(totalCommission);
             commissionRepo.save(commission);
@@ -64,16 +64,16 @@ public class commissionService {
         //System.out.println(byId.get().getCityID());
         if(byId.get().getCityID()!=0)
         {
-            if(commissionRepo.findBySIDAndMonth(byId.get().getCityID(),month)!=null)
+            if(commissionRepo.findBySidAndMonth(byId.get().getCityID(),month)!=null)
             {
-                Commission dummy = commissionRepo.findBySIDAndMonth(byId.get().getCityID(), month);
-                dummy.setCommission((totalCommission*commissionRuleRepo.findById(1).get().getCity_Rule())+(commissionRepo.findBySIDAndMonth(byId.get().getCityID(), month).getCommission())-(old_commission*commissionRuleRepo.findById(1).get().getCity_Rule()));
+                Commission dummy = commissionRepo.findBySidAndMonth(byId.get().getCityID(), month);
+                dummy.setCommission((totalCommission*commissionRuleRepo.findById(1).get().getCity_Rule())+(commissionRepo.findBySidAndMonth(byId.get().getCityID(), month).getCommission())-(old_commission*commissionRuleRepo.findById(1).get().getCity_Rule()));
                 commissionRepo.save(dummy);
             }
             else
             {
                 Commission cityCommission = new Commission();
-                cityCommission.setSID(byId.get().getCityID());
+                cityCommission.setSid(byId.get().getCityID());
                 cityCommission.setMonth(month);
                 cityCommission.setCommission(totalCommission*commissionRuleRepo.findById(1).get().getCity_Rule());
                 commissionRepo.save(cityCommission);
@@ -82,16 +82,16 @@ public class commissionService {
         }
         if(byId.get().getStateID()!=0)
         {
-            if(commissionRepo.findBySIDAndMonth(byId.get().getStateID(),month)!=null)
+            if(commissionRepo.findBySidAndMonth(byId.get().getStateID(),month)!=null)
             {
-                Commission dummy = commissionRepo.findBySIDAndMonth(byId.get().getStateID(), month);
-                dummy.setCommission((totalCommission*commissionRuleRepo.findById(1).get().getState_Rule())+(commissionRepo.findBySIDAndMonth(byId.get().getStateID(), month).getCommission())-(old_commission*commissionRuleRepo.findById(1).get().getState_Rule()));
+                Commission dummy = commissionRepo.findBySidAndMonth(byId.get().getStateID(), month);
+                dummy.setCommission((totalCommission*commissionRuleRepo.findById(1).get().getState_Rule())+(commissionRepo.findBySidAndMonth(byId.get().getStateID(), month).getCommission())-(old_commission*commissionRuleRepo.findById(1).get().getState_Rule()));
                 commissionRepo.save(dummy);
             }
             else
             {
                 Commission stateCommission = new Commission();
-                stateCommission.setSID(byId.get().getStateID());
+                stateCommission.setSid(byId.get().getStateID());
                 stateCommission.setMonth(month);
                 stateCommission.setCommission(totalCommission*commissionRuleRepo.findById(1).get().getState_Rule());
                 commissionRepo.save(stateCommission);
@@ -100,16 +100,16 @@ public class commissionService {
         }
         if(byId.get().getCountryID()!=0)
         {
-            if(commissionRepo.findBySIDAndMonth(byId.get().getCountryID(),month)!=null)
+            if(commissionRepo.findBySidAndMonth(byId.get().getCountryID(),month)!=null)
             {
-                Commission dummy = commissionRepo.findBySIDAndMonth(byId.get().getCountryID(), month);
-                dummy.setCommission((totalCommission*commissionRuleRepo.findById(1).get().getCountry_Rule())+(commissionRepo.findBySIDAndMonth(byId.get().getCountryID(), month).getCommission())-(old_commission*commissionRuleRepo.findById(1).get().getCountry_Rule()));
+                Commission dummy = commissionRepo.findBySidAndMonth(byId.get().getCountryID(), month);
+                dummy.setCommission((totalCommission*commissionRuleRepo.findById(1).get().getCountry_Rule())+(commissionRepo.findBySidAndMonth(byId.get().getCountryID(), month).getCommission())-(old_commission*commissionRuleRepo.findById(1).get().getCountry_Rule()));
                 commissionRepo.save(dummy);
             }
             else
             {
                 Commission countryCommission = new Commission();
-                countryCommission.setSID(byId.get().getCountryID());
+                countryCommission.setSid(byId.get().getCountryID());
                 countryCommission.setMonth(month);
                 countryCommission.setCommission(totalCommission*commissionRuleRepo.findById(1).get().getCountry_Rule());
                 commissionRepo.save(countryCommission);

@@ -17,13 +17,13 @@ import javax.persistence.Table;
 @Table
 public class SalesPerson {
     @Id
-    int SID;
-    String Name;
-    String Password;
+    int sid;
+    String name;
+    String password;
     @Column(nullable = true)
-    int CityID;
+    int cityID;
     @Column(nullable = true)
-    int StateID;
+    int stateID;
     @Column(nullable = true)
-    int CountryID;
+    int countryID;
 }

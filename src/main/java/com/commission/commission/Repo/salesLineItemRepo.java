@@ -11,5 +11,5 @@ import java.util.List;
 @Repository
 public interface salesLineItemRepo extends JpaRepository<SalesLineItem,Integer> {
 
-    List<SalesLineItem> findAllBySID(int sid);
+    List<SalesLineItem> findAllBySid(int sid);
 }

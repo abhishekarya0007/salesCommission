@@ -17,7 +17,7 @@ public class Commission {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     int id;
-    int SID;
+    int sid;
     Double commission;
     int month;
 
