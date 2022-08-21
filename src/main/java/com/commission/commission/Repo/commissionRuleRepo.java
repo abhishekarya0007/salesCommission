@@ -6,4 +6,5 @@ import org.springframework.stereotype.Repository;
 
 @Repository
 public interface commissionRuleRepo extends JpaRepository<CommissionRule,Integer> {
+    CommissionRule findByid(int id);
 }

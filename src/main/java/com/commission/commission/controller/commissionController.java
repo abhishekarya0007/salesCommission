@@ -1,14 +1,12 @@
 package com.commission.commission.controller;
 
 
+import com.commission.commission.entity.Commission;
 import com.commission.commission.service.commissionService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
-import org.springframework.web.bind.annotation.CrossOrigin;
-import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.RequestParam;
-import org.springframework.web.bind.annotation.RestController;
+import org.springframework.web.bind.annotation.*;
 
 @RestController
 @CrossOrigin("*")
@@ -16,10 +14,12 @@ public class commissionController {
 
     @Autowired
     commissionService commissionService;
-    @GetMapping("/admin/calculateCommission")
-    public ResponseEntity<Double> commission(@RequestParam("sid") int sid, @RequestParam("month") int month)
+    @PostMapping("/admin/calculateCommission")
+    public ResponseEntity<Double> commission(@RequestBody Commission commission)
     {
-        Double commission = commissionService.commission(sid, month);
-        return new ResponseEntity<>(commission, HttpStatus.OK);
+        int sid= commission.getSid();
+        int month = commission.getMonth();
+        Double newcommission = commissionService.commission(sid, month);
+        return new ResponseEntity<>(newcommission, HttpStatus.OK);
     }
 }

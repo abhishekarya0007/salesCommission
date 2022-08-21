@@ -12,4 +12,6 @@ public interface productTypeRepo extends JpaRepository<ProductType,Integer> {
 
 //    @Query(value = "Select * from product_type where ")
     List<ProductType> findByPtype(String productType);
+
+    ProductType findByid(int id);
 }
