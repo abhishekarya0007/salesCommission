@@ -1,5 +1,6 @@
 package com.commission.commission.controller;
 
+import com.commission.commission.entity.Commission;
 import com.commission.commission.entity.SalesLineItem;
 import com.commission.commission.helper.myExcelHelper;
 import com.commission.commission.service.excelService;
@@ -38,9 +39,11 @@ public class salesLineItemController {
     {
         return this.excelService.getAllSalesLineItems();
     }
-    @GetMapping("user/salesByMonth")
-    public List<SalesLineItem> salesByMonth(@RequestParam("sid") int sid, @RequestParam("month") int month)
+    @PostMapping("user/salesByMonth")
+    public List<SalesLineItem> salesByMonth(@RequestBody Commission commission)
     {
+        int sid= commission.getSid();
+        int month = commission.getMonth();
         return salesLineItemService.salesByMonth(sid,month);
     }
     @PostMapping("/admin/addSalesLineItem")
