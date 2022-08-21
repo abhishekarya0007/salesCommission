@@ -15,8 +15,8 @@ public class productTypeController {
     com.commission.commission.service.productTypeService productTypeService;
 
     @PostMapping("/admin/update/commissionPercentage")
-    public void updateCommissionPercentage(ProductType productType)
+    public void updateCommissionPercentage(ProductType producttype)
     {
-        productTypeService.updateCommissionPercentage(productType);
+        productTypeService.updateCommissionPercentage(producttype);
     }
 }

@@ -39,9 +39,14 @@ public class salesLineItemController {
         return this.excelService.getAllSalesLineItems();
     }
     @GetMapping("user/salesByMonth")
-    public List<SalesLineItem> salesByMonth(@RequestParam("SID") int SID, @RequestParam("Month") int Month)
+    public List<SalesLineItem> salesByMonth(@RequestParam("sid") int sid, @RequestParam("month") int month)
     {
-        return salesLineItemService.salesByMonth(SID,Month);
+        return salesLineItemService.salesByMonth(sid,month);
     }
+    @PostMapping("/admin/addSalesLineItem")
+    public SalesLineItem addSalesPerson(@RequestBody SalesLineItem salesLineItem){
 
+        return salesLineItemService.addSalesLineItem(salesLineItem);
+
+    }
 }

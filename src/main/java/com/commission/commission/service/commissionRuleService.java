@@ -13,7 +13,7 @@ public class commissionRuleService {
     @Autowired
     com.commission.commission.Repo.commissionRuleRepo commissionRuleRepo;
     public void update(CommissionRule commissionRule) {
-        Optional<CommissionRule> byId = commissionRuleRepo.findById(commissionRule.getID());
+        Optional<CommissionRule> byId = commissionRuleRepo.findById(commissionRule.getId());
         if(byId.isPresent()) {
             byId.get().setCity_Rule(commissionRule.getCity_Rule());
             byId.get().setState_Rule(commissionRule.getState_Rule());

@@ -11,5 +11,5 @@ import java.util.List;
 public interface productTypeRepo extends JpaRepository<ProductType,Integer> {
 
 //    @Query(value = "Select * from product_type where ")
-    List<ProductType> findByPType(String productType);
+    List<ProductType> findByPtype(String productType);
 }
